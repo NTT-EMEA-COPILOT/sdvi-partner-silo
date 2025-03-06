@@ -1,17 +1,7 @@
-resource "aws_s3_object" "incoming_folders" {
+module "sns_user_folders" {
   for_each = toset(var.partner_silo_config.user_names)
-
-  bucket       = aws_s3_bucket.partner_silo_bucket.id
-  key          = "${each.value}/incoming"
-  content_type = "application/x-directory"
-  source       = "/dev/null"
-}
-
-resource "aws_s3_object" "processed_folders" {
-  for_each = toset(var.partner_silo_config.user_names)
-
-  bucket       = aws_s3_bucket.partner_silo_bucket.id
-  key          = "${each.value}/processed"
-  content_type = "application/x-directory"
-  source       = "/dev/null"
+  source                  = "./modules/s3_user_folders"
+  user_name               = each.key
+  partner_silo_bucket_id  = aws_s3_bucket.partner_silo_bucket.id
+  partner_silo_bucket_arn = aws_s3_bucket.partner_silo_bucket.arn
 }

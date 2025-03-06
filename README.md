@@ -15,6 +15,18 @@ This document describes the steps to setup a partner silo in SDVI Rally.
 - Incomplete multipart uploads are deleted after 15 days
 - Files in the bucket are deleted after 60 days to avoid incurring costs
 - The bucket is not publicly accessible
-- Two folders are defined and mapped in Rally as different RSL:
-  - incoming_media
-  - processed_media
+- Two folders, for each user, are defined and mapped in Rally as different RSL:
+  - {username}/incoming_media
+  - {username}/processed_media
+- Two SNS topics are created for each user:
+  - {username}_topic_1
+  - {username}_topic_2
+
+## User setup
+IAM role to assign to Rally resources is:
+  - `arn:aws:iam::117342603894:role/sdvi-partner-silo-dev-role`
+SNS topics are created for each user:
+  - `arn:aws:sns:eu-south-1:117342603894:topic_1_{username}`
+  - `arn:aws:sns:eu-south-1:117342603894:topic_2_{username}`
+SNS topic to forward per user folder S3Notifications to SDVI
+  - `arn:aws:sns:eu-south-1:117342603894:incoming_folders_notification_{username}`

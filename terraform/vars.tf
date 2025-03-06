@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {}
+
 variable "aws_provider_info" {
   type = map
 }

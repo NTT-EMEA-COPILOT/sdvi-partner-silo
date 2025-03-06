@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "partner_silo_bucket" {
 resource "aws_s3_bucket_ownership_controls" "partner_silo_bucket_acl_ownership" {
   bucket = aws_s3_bucket.partner_silo_bucket.id
   rule {
-    object_ownership = "ObjectWriter"
+    object_ownership = "BucketOwnerPreferred"
   }
 }
 
@@ -22,9 +22,32 @@ resource "aws_s3_bucket_versioning" "partner_silo_bucket_versioning" {
   }
 }
 
+resource "aws_s3_bucket_public_access_block" "partner_silo_bucket_access" {
+  bucket                  = aws_s3_bucket.partner_silo_bucket.id
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
 resource "aws_s3_bucket_acl" "partner_silo_bucket_acl" {
   bucket = aws_s3_bucket.partner_silo_bucket.id
   acl    = "private"
+}
+
+resource "aws_s3_bucket_cors_configuration" "partner_silo_bucket_cors" {
+  bucket = aws_s3_bucket.partner_silo_bucket.id
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["PUT", "POST", "HEAD", "GET", "DELETE"]
+    allowed_origins = ["*"]
+    expose_headers = ["ETag"]
+    max_age_seconds = 3000
+  }
+  cors_rule {
+    allowed_methods = ["GET"]
+    allowed_origins = ["*"]
+  }
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "partner_silo_bucket_config" {
