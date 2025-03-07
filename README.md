@@ -11,13 +11,14 @@ This document describes the steps to setup a partner silo in SDVI Rally.
 ## Caveats
 - terraform state file is kept within `sdvi-partner-silo-storage-terraform-state` bucket in the `eu-south-1` region
 - All the commands should be run from the `terraform` directory
-- Infrastructure is created in the `eu-south-1` region
+- Infrastructure is created in the `eu-west-1` region
 - Incomplete multipart uploads are deleted after 15 days
 - Files in the bucket are deleted after 60 days to avoid incurring costs
 - The bucket is not publicly accessible
-- Two folders, for each user, are defined and mapped in Rally as different RSL:
-  - {username}/incoming_media
-  - {username}/processed_media
+- Three folders, for each user, are defined and mapped in Rally as different RSL:
+  - {username}/incoming, for incoming files every user uploads triggers a notification to Rally RSL
+  - {username}/processed, for processed files
+  - {username}/package, for package files to be referred by preset as Eval2Package config field
 - Two SNS topics are created for each user:
   - {username}_topic_1
   - {username}_topic_2
@@ -26,7 +27,7 @@ This document describes the steps to setup a partner silo in SDVI Rally.
 IAM role to assign to Rally resources is:
   - `arn:aws:iam::117342603894:role/sdvi-partner-silo-dev-role`
 SNS topics are created for each user:
-  - `arn:aws:sns:eu-south-1:117342603894:topic_1_{username}`
-  - `arn:aws:sns:eu-south-1:117342603894:topic_2_{username}`
-SNS topic to forward per user folder S3Notifications to SDVI
-  - `arn:aws:sns:eu-south-1:117342603894:incoming_folders_notification_{username}`
+  - `arn:aws:sns:eu-west-1:117342603894:topic_1_{username}`
+  - `arn:aws:sns:eu-west-1:117342603894:topic_2_{username}`
+SNS topic to forward S3Notifications to SDVI, per user filtering is performed by Rally at RSL level:
+  - `arn:aws:sns:eu-west-1:117342603894:sdvi-notify-sdvi-partner-silo-storage`

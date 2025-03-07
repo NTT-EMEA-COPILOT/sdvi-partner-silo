@@ -12,6 +12,13 @@ resource "aws_s3_object" "processed_folders" {
   source       = "/dev/null"
 }
 
+resource "aws_s3_object" "package_folders" {
+  bucket       = var.partner_silo_bucket_id
+  key          = "${var.user_name}/package/"
+  content_type = "application/x-directory"
+  source       = "/dev/null"
+}
+
 resource "aws_s3_bucket_notification" "user_incoming_folders_notification" {
   bucket = var.partner_silo_bucket_id
 
