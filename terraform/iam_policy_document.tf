@@ -38,9 +38,9 @@ data "aws_iam_policy_document" "partner_silo_policy_doc" {
     ]
     effect = "Allow"
     resources = [
-      "arn:aws:sns:eu-south-1:${data.aws_caller_identity.current.account_id}:incoming_folders_notification_roberto_corno",
-      "arn:aws:sns:eu-south-1:${data.aws_caller_identity.current.account_id}:topic_1_roberto_corno",
-      "arn:aws:sns:eu-south-1:${data.aws_caller_identity.current.account_id}:topic_2_roberto_corno"
+      "arn:aws:sns:${var.aws_provider_info.region}:${data.aws_caller_identity.current.account_id}:sdvi-notify-${aws_s3_bucket.partner_silo_bucket.id}",
+      "arn:aws:sns:${var.aws_provider_info.region}:${data.aws_caller_identity.current.account_id}:sdvi-partner-silo-topic-1-*",
+      "arn:aws:sns:${var.aws_provider_info.region}:${data.aws_caller_identity.current.account_id}:sdvi-partner-silo-topic-2-*"
     ]
   }
   statement {

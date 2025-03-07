@@ -1,5 +1,5 @@
 aws_provider_info = {
-  region = "eu-south-1"
+  region = "eu-west-1"
 }
 
 project_info = {
@@ -17,6 +17,6 @@ partner_silo_info = {
 
 partner_silo_config = {
   user_names = [
-    "roberto_corno"
+    "test_user"
   ]
 }

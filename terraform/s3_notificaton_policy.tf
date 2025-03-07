@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "user_incoming_folders_policy_doc" {
+data "aws_iam_policy_document" "partner_silo_bucket_notification_policy_doc" {
   statement {
     sid    = "__default_statement_ID"
     effect = "Allow"
@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "user_incoming_folders_policy_doc" {
       "SNS:Publish",
       "SNS:Receive"
     ]
-    resources = [aws_sns_topic.user_incoming_folders_notification.arn]
+    resources = [aws_sns_topic.partner_silo_bucket_notification.arn]
     condition {
       test     = "StringEquals"
       variable = "AWS:SourceOwner"
@@ -33,11 +33,11 @@ data "aws_iam_policy_document" "user_incoming_folders_policy_doc" {
       identifiers = ["*"]
     }
     actions = ["SNS:Publish"]
-    resources = [aws_sns_topic.user_incoming_folders_notification.arn]
+    resources = [aws_sns_topic.partner_silo_bucket_notification.arn]
     condition {
       test     = "ArnLike"
       variable = "aws:SourceArn"
-      values = [var.partner_silo_bucket_arn]
+      values = [aws_s3_bucket.partner_silo_bucket.arn]
     }
   }
 }

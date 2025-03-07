@@ -16,13 +16,11 @@ resource "aws_s3_bucket_notification" "user_incoming_folders_notification" {
   bucket = var.partner_silo_bucket_id
 
   topic {
-    topic_arn = aws_sns_topic.user_incoming_folders_notification.arn
+    topic_arn = var.partner_silo_bucket_notification_topic_arn
     events    = [
       "s3:ObjectCreated:*",
       "s3:ObjectRemoved:*"
     ]
     filter_prefix = "${var.user_name}/incoming/"
   }
-
-  depends_on = [aws_sns_topic_policy.user_incoming_folders_notification_policy]
 }

@@ -12,9 +12,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "sdvi-partner-silo-storage-terraform-state"
+    bucket         = "sdvi-partner-silo-terraform-state"
     key            = "states/terraform.tfstate"
-    region         = "eu-south-1"
+    region         = "eu-west-1"
     encrypt        = true
     dynamodb_table = "terraform-state-locks"
   }
