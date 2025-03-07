@@ -42,7 +42,7 @@ resource "aws_api_gateway_integration" "sns_proxy_lambda_integration" {
     "application/json" = jsonencode({
       topic    = "$input.params('topic')"
       username = "$input.params('username')"
-      body     = "$input.json('$')"
+      body     = "$util.escapeJavascript($input.body)"
     })
   }
 }
