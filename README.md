@@ -9,12 +9,12 @@ This document describes the steps to setup a partner silo in SDVI Rally.
 - scripts/init_backend.sh script run to initialize the backend
 
 ## Caveats
-- terraform state file is kept within `sdvi-partner-silo-storage-terraform-state` bucket in the `eu-south-1` region
+- terraform state file is kept within `sdvi-partner-silo-terraform-state` bucket in the `eu-west-1` region
 - All the commands should be run from the `terraform` directory
 - Infrastructure is created in the `eu-west-1` region
-- Incomplete multipart uploads are deleted after 15 days
-- Files in the bucket are deleted after 60 days to avoid incurring costs
-- The bucket is not publicly accessible
+- Incomplete multipart uploads are deleted after 10 days
+- Files in the bucket are deleted after 30 days to avoid incurring costs
+- The bucket `sdvi-partner-silo-storage` is not publicly accessible
 - Three folders, for each user, are defined and mapped in Rally as different RSL:
   - {username}/incoming, for incoming files every user uploads triggers a notification to Rally RSL
   - {username}/processed, for processed files
