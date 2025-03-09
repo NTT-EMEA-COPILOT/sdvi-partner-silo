@@ -24,11 +24,7 @@ resource "aws_api_gateway_method" "sns_proxy_method" {
   http_method      = "POST"
   authorization    = "NONE"
   api_key_required = true
-
-  request_parameters = {
-    "method.request.querystring.topic"    = true
-    "method.request.querystring.username" = true
-  }
+  request_validator_id = aws_api_gateway_request_validator.sns_proxy_lambda_request_validator.id
 }
 
 resource "aws_api_gateway_integration" "sns_proxy_lambda_integration" {
@@ -36,15 +32,35 @@ resource "aws_api_gateway_integration" "sns_proxy_lambda_integration" {
   resource_id             = aws_api_gateway_resource.sns_proxy.id
   http_method             = aws_api_gateway_method.sns_proxy_method.http_method
   integration_http_method = "POST"
-  type                    = "AWS"
+  type                    = "AWS_PROXY"
   uri                     = aws_lambda_function.sns_proxy_lambda.invoke_arn
-  request_templates = {
-    "application/json" = jsonencode({
-      topic    = "$input.params('topic')"
-      username = "$input.params('username')"
-      body     = "$util.escapeJavascript($input.body)"
-    })
-  }
+}
+
+resource "aws_api_gateway_request_validator" "sns_proxy_lambda_request_validator" {
+  name                        = "POSTExampleRequestValidator"
+  rest_api_id                 = aws_api_gateway_rest_api.partner_silo_api_gateway.id
+  validate_request_body       = true
+  validate_request_parameters = false
+}
+
+resource "aws_api_gateway_model" "sns_proxy_lambda_json_model" {
+  rest_api_id  = aws_api_gateway_rest_api.partner_silo_api_gateway.id
+  content_type = "application/json"
+  name         = "snsProxyJsonModel"
+  schema = jsonencode({
+    type = "object"
+    properties = {
+      topic = {
+        type = "number"
+      }
+      username = {
+        type = "string"
+      }
+      message = {
+        type = "string"
+      }
+    }
+  })
 }
 
 resource "aws_api_gateway_method_response" "sns_proxy_lambda_response_200" {
@@ -77,10 +93,15 @@ resource "aws_lambda_permission" "partner_silo_api_gateway_lambda_permission" {
 }
 
 resource "aws_api_gateway_deployment" "partner_silo_api_gateway_deployment" {
-  depends_on = [aws_api_gateway_integration.sns_proxy_lambda_integration]
+  depends_on = [
+    aws_api_gateway_method.sns_proxy_method,
+    aws_api_gateway_integration.sns_proxy_lambda_integration
+  ]
   rest_api_id = aws_api_gateway_rest_api.partner_silo_api_gateway.id
   triggers = {
     redeployment = sha1(jsonencode([
+      aws_api_gateway_resource.sns_proxy.path_part,
+      aws_api_gateway_integration.sns_proxy_lambda_integration.uri,
       aws_api_gateway_method.sns_proxy_method.http_method
     ]))
   }
@@ -94,6 +115,67 @@ resource "aws_api_gateway_stage" "partner_silo_api_gateway_stage" {
   deployment_id = aws_api_gateway_deployment.partner_silo_api_gateway_deployment.id
   rest_api_id   = aws_api_gateway_rest_api.partner_silo_api_gateway.id
   stage_name    = "master"
+}
+
+resource "aws_api_gateway_method_settings" "partner_silo_api_gateway_method_settings" {
+  rest_api_id = aws_api_gateway_rest_api.partner_silo_api_gateway.id
+  stage_name  = aws_api_gateway_stage.partner_silo_api_gateway_stage.stage_name
+  method_path = "*/*"
+
+  settings {
+    metrics_enabled    = true
+    data_trace_enabled = true
+    logging_level      = "INFO"
+  }
+}
+
+resource "aws_cloudwatch_log_group" "api_gateway_partner_silo_api_gateway_log" {
+  name              = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.partner_silo_api_gateway.id}/${aws_api_gateway_stage.partner_silo_api_gateway_stage.stage_name}"
+  retention_in_days = 7
+}
+
+resource "aws_iam_role" "api_gateway_partner_silo_account_role" {
+  name = "api-gateway-partner-silo-account-role"
+  assume_role_policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Sid" : "",
+        "Effect" : "Allow",
+        "Principal" : {
+          "Service" : "apigateway.amazonaws.com"
+        },
+        "Action" : "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy" "api_gateway_partner_silo_cloudwatch_policy" {
+  name = "api-gateway-partner-silo-cloudwatch-policy"
+  role = aws_iam_role.api_gateway_partner_silo_account_role.id
+  policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Action" : [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:DescribeLogGroups",
+          "logs:DescribeLogStreams",
+          "logs:PutLogEvents",
+          "logs:GetLogEvents",
+          "logs:FilterLogEvents"
+        ],
+        "Resource" : "*"
+      }
+    ]
+  })
+}
+
+resource "aws_api_gateway_account" "api_gateway_partner_silo_account" {
+  cloudwatch_role_arn = aws_iam_role.api_gateway_partner_silo_account_role.arn
 }
 
 resource "aws_api_gateway_api_key" "partner_silo_api_key" {

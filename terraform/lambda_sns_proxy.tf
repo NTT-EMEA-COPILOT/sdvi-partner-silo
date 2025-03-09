@@ -25,3 +25,16 @@ resource "aws_lambda_function" "sns_proxy_lambda" {
     Terraform   = "true"
   }
 }
+
+resource "aws_cloudwatch_log_group" "sns_proxy_lambda_log_group" {
+  name              = "/aws/lambda/${aws_lambda_function.sns_proxy_lambda.function_name}"
+  retention_in_days = 14
+}
+
+resource "aws_lambda_permission" "sns_proxy_lambda_allow_cloudwatch" {
+  statement_id  = "AllowExecutionFromCloudWatch"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.sns_proxy_lambda.function_name
+  principal     = "logs.amazonaws.com"
+  source_arn = aws_cloudwatch_log_group.sns_proxy_lambda_log_group.arn
+}

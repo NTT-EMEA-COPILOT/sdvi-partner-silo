@@ -27,7 +27,7 @@ This document describes the steps to setup a partner silo in SDVI Rally.
 IAM role to assign to Rally resources is:
   - `arn:aws:iam::117342603894:role/sdvi-partner-silo-dev-role`
 SNS topics are created for each user:
-  - `arn:aws:sns:eu-west-1:117342603894:topic_1_{username}`
-  - `arn:aws:sns:eu-west-1:117342603894:topic_2_{username}`
+  - `arn:aws:sns:eu-west-1:117342603894:sdvi-partner-silo-topic-1-{username}`
+  - `arn:aws:sns:eu-west-1:117342603894:sdvi-partner-silo-topic-2-{username}`
 SNS topic to forward S3Notifications to SDVI, per user filtering is performed by Rally at RSL level:
   - `arn:aws:sns:eu-west-1:117342603894:sdvi-notify-sdvi-partner-silo-storage`

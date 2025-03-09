@@ -1,26 +1,24 @@
 import json
 import os
+from pyexpat.errors import messages
+
 import boto3
 from botocore.exceptions import ClientError
 
 
 def lambda_handler(event, context):
     print(f"event: {event}")
-    topic_number = event.get('topic')
-    username = event.get('username')
+    body = json.loads(event.get('body','{}'))
+    topic_number = body.get('topic')
+    username = body.get('username')
+    message = json.loads(body.get('message', '{}'))
     if topic_number and username:
         sns_topic_prefix = os.environ.get('SNS_TOPIC_PREFIX')
         sns_topic_arn = f'{sns_topic_prefix}-topic-{topic_number}-{username}'
         print(f"topic_arn: {sns_topic_arn}")
+        print(f"payload: {json.dumps(message)}")
         sns_client = boto3.client('sns')
         try:
-            if isinstance(event, str):
-                try:
-                    message = json.loads(event)
-                except json.JSONDecodeError:
-                    message = event
-            else:
-                message = event
             response = sns_client.publish(
                 TopicArn=sns_topic_arn,
                 Message=json.dumps(message),
