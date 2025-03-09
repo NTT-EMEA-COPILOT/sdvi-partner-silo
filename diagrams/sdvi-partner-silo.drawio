@@ -32,9 +32,6 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="rrwJDhQOBMlgbJ-JU8yh-6" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;sns-proxy&lt;/h1&gt;&lt;div&gt;request params:&lt;/div&gt;&lt;div&gt;- topic: topic number [1,2]&lt;/div&gt;&lt;div&gt;- username: as configured in terraforn&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-210" y="730" width="240" height="120" as="geometry" />
-        </mxCell>
         <mxCell id="SaRnsYtcrHhQaOOG1sa7-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1000" y="20" width="740" height="850" as="geometry" />
         </mxCell>
