@@ -23,3 +23,7 @@ Select the `Storage Files` menu on the left hand menu and click on the configure
 ![RSL Trigger](images/storage_files.png)
 
 You will see the list of files in the RSL, and you can upload a file in the incoming folder.
+
+![Upload media](images/upload_media.png)
+
+Then you can check the logs in the preset from the `Monitoring` section as explained in the previous chapter.
