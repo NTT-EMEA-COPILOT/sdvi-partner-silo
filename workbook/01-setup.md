@@ -1,7 +1,7 @@
 # Chapter-1: Setup
 
 ## Create RSL
-Read the [Infrastructure in RFally](https://sdvi.my.site.com/support/s/article/Infrastructure-in-Rally) to understand what a Rally Storage Location (RSL) is.
+Read the [Infrastructure in Rally](https://sdvi.my.site.com/support/s/article/Infrastructure-in-Rally) to understand what a Rally Storage Location (RSL) is.
 
 The document also explain what _providers_ are.
 
