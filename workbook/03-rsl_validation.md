@@ -17,3 +17,9 @@ For our purpose we are simply connecting the media trigger to the preset we crea
 
 Once done we can just upload a file in the incoming folder of the bucket and check the logs in the preset.
 
+
+Select the `Storage Files` menu on the left hand menu and click on the configured RSL.
+
+![RSL Trigger](images/storage_files.png)
+
+You will see the list of files in the RSL, and you can upload a file in the incoming folder.

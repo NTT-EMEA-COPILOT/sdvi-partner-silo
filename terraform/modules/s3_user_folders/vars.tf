@@ -8,10 +8,6 @@ variable "partner_silo_bucket_id" {
   type = string
 }
 
-variable "partner_silo_bucket_notification_topic_arn" {
-  type = string
-}
-
 variable "default_expiration_days" {
   type = string
 }

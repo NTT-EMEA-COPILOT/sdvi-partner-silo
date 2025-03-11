@@ -49,3 +49,15 @@ resource "aws_s3_bucket_cors_configuration" "partner_silo_bucket_cors" {
     allowed_origins = ["*"]
   }
 }
+
+resource "aws_s3_bucket_notification" "user_incoming_folders_notification" {
+  bucket = aws_s3_bucket.partner_silo_bucket.id
+
+  topic {
+    topic_arn = aws_sns_topic.partner_silo_bucket_notification.arn
+    events    = [
+      "s3:ObjectCreated:*",
+      "s3:ObjectRemoved:*"
+    ]
+  }
+}

@@ -5,5 +5,4 @@ module "sns_user_folders" {
   partner_silo_bucket_id                     = aws_s3_bucket.partner_silo_bucket.id
   abort_multipart_expiration_days            = var.partner_silo_info.abort_multipart_expiration_days
   default_expiration_days                    = var.partner_silo_info.default_expiration_days
-  partner_silo_bucket_notification_topic_arn = aws_sns_topic.partner_silo_bucket_notification.arn
 }
