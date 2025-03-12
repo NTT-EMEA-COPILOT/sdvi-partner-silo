@@ -18,6 +18,8 @@ partner_silo_info = {
 partner_silo_config = {
   user_names = [
     "test_user",
-    "stefano_barbareschi"
+    "stefano_barbareschi",
+    "andrea_marasco",
+    "rebecca_morda"
   ]
 }

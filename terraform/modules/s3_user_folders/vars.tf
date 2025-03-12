@@ -7,11 +7,3 @@ variable "user_name" {
 variable "partner_silo_bucket_id" {
   type = string
 }
-
-variable "default_expiration_days" {
-  type = string
-}
-
-variable "abort_multipart_expiration_days" {
-  type = string
-}
