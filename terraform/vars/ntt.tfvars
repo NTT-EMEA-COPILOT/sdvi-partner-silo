@@ -20,6 +20,7 @@ partner_silo_config = {
     "test_user",
     "stefano_barbareschi",
     "andrea_marasco",
-    "rebecca_morda"
+    "rebecca_morda",
+    "jeanfelipe_fonseca"
   ]
 }
