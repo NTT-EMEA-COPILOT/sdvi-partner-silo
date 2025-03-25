@@ -2,7 +2,8 @@
 cd ../terraform
 export AWS_PROFILE=youcorn
 export AWS_REGION=eu-south-1
-export SSL_CERT_FILE=./cert/ZscalerRootCertificate-2048-SHA256.crt
+export AWS_CA_BUNDLE=../terraform/cert/ZscalerRootCertificate-2048-SHA256.crt
+export SSL_CERT_FILE=../terraform/cert/ZscalerRootCertificate-2048-SHA256.crt
 if [ -e ./terraform.tfstate ]; then
     echo "Terraform already initialized."
 else
