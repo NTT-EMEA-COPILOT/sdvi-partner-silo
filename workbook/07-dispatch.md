@@ -9,4 +9,4 @@ In some scenarios, you may run a preset that identifies some dynamic_preset_data
 ## Dispatching a job to parallel steps in a split
 In some cases, you may be able to optimize your supply chain by parallelizing tasks that don't have any dependence with each other.
 
-The official documentation is available [here](https://sdvi.my.site.com/support/s/article/Dispatch-Next-Steps-Split-Or-Sequencing).
+The official documentation is available [here](https://sdvi.my.site.com/support/s/article/Decision-Engine-Dispatch-Next-Steps-Split-Or-Sequencing).
