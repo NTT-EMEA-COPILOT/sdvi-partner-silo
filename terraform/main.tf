@@ -5,6 +5,8 @@ provider "aws" {
   region = var.aws_provider_info.region
 }
 
+provider "null" {}
+
 terraform {
   required_providers {
     aws = {

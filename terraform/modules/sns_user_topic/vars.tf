@@ -4,10 +4,6 @@ variable "topic_name" {
   type = string
 }
 
-variable "sdvi_managed_account" {
-  type = string
-}
-
 variable "project_info" {
   type = map
 }

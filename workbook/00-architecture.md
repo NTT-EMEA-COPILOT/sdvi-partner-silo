@@ -44,6 +44,12 @@ Two SNS topics are created for each user, to send or receive notifications to an
   - {username}_topic_1
   - {username}_topic_2
 
+For each user a curated tag is automatically provisioned in Rally, to be used to tag resources created during this workbook execution.
+
+Tags are visible from the Administration -> Curation menu.
+![Curated Tag](./images/tags.png)
+
+
 It's possible to trigger the publication of a message to the SNS topic by creating a notification preset or invoking the https://g7j1jsfupb.execute-api.eu-west-1.amazonaws.com/master/sns-proxy API.
 It accept a POST request with a json body containing the message, the topic and the username.
 <ins>Example:</ins>

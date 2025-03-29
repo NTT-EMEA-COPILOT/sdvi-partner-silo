@@ -1,0 +1,3 @@
+#!/bin/bash
+#curl -H "Authorization: Bearer xur3GxPon8fKj7ggzhTCcaZ9VATQMw5HteiKUJWjjnpf6wyzo+jf8JMLMGuYOXg0" -X POST https://partner.sdvi.com/api/v2/tagNames -H "Content-Type: application/json" -d '{"data": {"type": "tagNames","attributes":{"name": "US","curated": true}}}'
+curl -H "Authorization: Bearer ${API_KEY}" -X POST https://partner.sdvi.com/api/v2/${API_PATH} -H "Content-Type: application/json" -d "${REQ_BODY}"
