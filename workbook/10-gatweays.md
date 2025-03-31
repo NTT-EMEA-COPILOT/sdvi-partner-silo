@@ -14,4 +14,8 @@ Fill form data and click on the `Create` button.
 
 ![Portal Form](./images/portal_form.png)
 
-**Note**: usernames contain '_' character that is not allowed as a part of the path `field`, feel free to change it to '-' or simply remove it. 
+**Note**: usernames contain '_' character that is not allowed as a part of the path `field`, feel free to change it to '-' or simply remove it.
+
+## Add a widget to your portal
+Follow this [guide](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Asset-List) to add a widget to your portal.
+Filter the `Asset List` by tag as per step 1 of chapter 4. 
