@@ -13,3 +13,16 @@ You can use the tag automatically provisioned with your account creation.
 
 *Hint*: Tags are visible from the Administration -> Curation menu.
 ![Curated Tag](./images/tags.png)
+
+### Step 2: Add inventory
+Go back to the 'Register Files' step and stop on the `files.add_inventory` step.
+[Here](https://partner.sdvi.com/docs/evaluate/api.html#rally.files.add_inventory) is the official api documentation
+
+Pay particular attention to those two fields:
+- **auto_analyze** (str or bool or None) –
+create analyze info for this file by running an SDVI Analyze auto job
+
+- **generate_hash** (str or bool or None) –
+create hashes for this file by running an SDVI Hasher auto job
+
+Creating a file hash or been able to tweak the analyze job are very useful features and common use cases. 
