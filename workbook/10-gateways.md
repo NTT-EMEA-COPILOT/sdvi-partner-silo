@@ -16,6 +16,15 @@ Fill form data and click on the `Create` button.
 
 **Note**: usernames contain '_' character that is not allowed as a part of the path `field`, feel free to change it to '-' or simply remove it.
 
+## Create your portal page
+To create your first portal page, enter the portal by clicking the gateway portal URL and select the `Manage Pages` grayed menu item on the left side of the page.
+
+![Create Page](./images/create_wo_page.png)
+
+Click on the `+` button and fill the form data.
+
+![Create AssetList](./images/asset_list_wo.png)
+
 ## Add a widget to your portal
 Follow this [guide](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Asset-List) to add a widget to your portal.
 Filter the `Asset List` by tag as per step 1 of chapter 4.

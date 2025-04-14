@@ -1,0 +1,60 @@
+{
+  "gateway": {
+    "markdown": {
+      "TechMarkdown": [
+        "{{ DYNAMIC_PRESET_DATA['message'] }}"
+      ]
+    },
+    "schemas": {
+      "techValidation": {
+        "displayRules": [
+          {
+            "type": "markdown",
+            "value": "### Failure reason(s)\n{{ DYNAMIC_PRESET_DATA['message'] }}"
+          },
+          {
+            "enum": [
+              "Reject File",
+              "Ingest anyway",
+              "Send to Leeds"
+            ],
+            "presentation": {
+              "type": "radio"
+            },
+            "schemaProperty": "NextAction"
+          },
+          {
+            "schemaProperty": "Comments"
+          }
+        ],
+        "schema": {
+          "$id": "md-1",
+          "properties": {
+            "Allow Existing Asset for Critical Delivery": {
+              "default": false,
+              "title": "Allow Existing Asset for Critical Delivery",
+              "type": "boolean"
+            },
+            "Comments": {
+              "title": "Comments",
+              "type": [
+                "string"
+              ]
+            },
+            "NextAction": {
+              "title": "Next action",
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "required": [
+            "NextAction"
+          ],
+          "title": "Tech Validation",
+          "type": "object"
+        }
+      }
+    }
+  }
+}
