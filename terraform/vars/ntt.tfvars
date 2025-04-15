@@ -22,6 +22,9 @@ partner_silo_config = {
     "stefano_barbareschi",
     "andrea_marasco",
     "rebecca_morda",
-    "jeanfelipe_fonseca"
+    "jeanfelipe_fonseca",
+    "aldo_zavalina",
+    "andrea_briganti",
+    "francesco_musumanno"
   ]
 }
