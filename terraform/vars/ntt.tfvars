@@ -25,6 +25,8 @@ partner_silo_config = {
     "jeanfelipe_fonseca",
     "aldo_zavalina",
     "andrea_briganti",
-    "francesco_musumanno"
+    "francesco_musumanno",
+    "mario_rizzo",
+    "carlo_desimone"
   ]
 }
