@@ -71,6 +71,26 @@ Open the preset editor and fill the form with the following (referenced also [he
 }
 ```
 
+To save the workorder output in metadata you should add:
+```json
+{
+  "PresetName": "tech_validation__workorder",
+  "enableMio": true,
+  "outputSpec": {
+    "techValidation": {
+      "label": "{{ DYNAMIC_PRESET_DATA['label'] }}",  
+      "location": "{{ DYNAMIC_PRESET_DATA['location'] }}",
+      "name": "{{ DYNAMIC_PRESET_DATA['name'] }}"
+    }
+  }
+}
+```
+where:
+* `enableMio`: This must be set to true to allow both input and output functionality. For more details about Multi-File I/O (MIO), refer [here](https://sdvi.my.site.com/support/s/article/Multi-File-I-O-aka-MIO).
+* `label`: This is the label that will be saved in the asset inventory.
+* `location`: This specifies the RSL (Resource Storage Location) where the output file will be stored.
+* `name`: This is the name of the output file, which will be saved as a JSON file in this case.
+
 ## Create your work order page
 Enter the gateway page created in chapter 10 and create a new portal page.
 
@@ -115,3 +135,4 @@ Your page should look like this:
 ![Empty Widget Page](./images/custom_form_wo_empty_page.png)
 
 ## Create a work order
+
