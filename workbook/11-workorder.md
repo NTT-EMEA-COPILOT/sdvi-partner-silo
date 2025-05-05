@@ -70,7 +70,7 @@ Open the preset editor and fill the form with the following (referenced also [he
   }
 }
 ```
-
+[Here](https://sdvi.my.site.com/support/s/article/Metadata-Form-Use-in-Rally-and-Gateway) article on custom forms. 
 To save the workorder output in metadata you should add:
 ```json
 {
@@ -90,6 +90,16 @@ where:
 * `label`: This is the label that will be saved in the asset inventory.
 * `location`: This specifies the RSL (Resource Storage Location) where the output file will be stored.
 * `name`: This is the name of the output file, which will be saved as a JSON file in this case.
+
+*Note*: To pass the dynamic fields (DYNAMIC_PRESET_DATA) it can be used the `Advanced Runner`, more information on how to use it in [This Article](https://sdvi.my.site.com/support/s/article/How-To-Manually-Run-Presets-and-Rules-From-The-Rally-UI). In this case for i.e.:
+```json
+{
+    "message": "This is a test message",
+    "label": "test_label",
+    "location": "test_incoming",
+    "name": "test_name"
+}
+```
 
 ## Create your work order page
 Enter the gateway page created in chapter 10 and create a new portal page.
