@@ -91,16 +91,6 @@ where:
 * `location`: This specifies the RSL (Resource Storage Location) where the output file will be stored.
 * `name`: This is the name of the output file, which will be saved as a JSON file in this case.
 
-*Note*: To pass the dynamic fields (DYNAMIC_PRESET_DATA) it can be used the `Advanced Runner`, more information on how to use it in [This Article](https://sdvi.my.site.com/support/s/article/How-To-Manually-Run-Presets-and-Rules-From-The-Rally-UI). In this case for i.e.:
-```json
-{
-    "message": "This is a test message",
-    "label": "test_label",
-    "location": "test_incoming",
-    "name": "test_name"
-}
-```
-
 ## Create your work order page
 Enter the gateway page created in chapter 10 and create a new portal page.
 
@@ -145,4 +135,32 @@ Your page should look like this:
 ![Empty Widget Page](./images/custom_form_wo_empty_page.png)
 
 ## Create a work order
+After you crate your preset and your gateway page, you can create a work order.
+You need to run the preset on the asset. it can be used the `Advanced Runner`, more information on how to use it in [This Article](https://sdvi.my.site.com/support/s/article/How-To-Manually-Run-Presets-and-Rules-From-The-Rally-UI). You can pass the dynamic fields (DYNAMIC_PRESET_DATA) in dynamic preset data as a dict. In this case for i.e.:
+```json
+{
+    "message": "This is a test message",
+    "label": "test_label",
+    "location": "test_incoming",
+    "name": "test_name"
+}
+```
+You can create a preset to add the dynamic preset data (DPD) before running the workorder preset, and then call the workorder preset from it.
 
+# Temporary not working #
+The workorders are not loading properly, it can take days so you won't see it on the gateway page. 
+
+## In the gateway page
+Go to `Unassigned tasks` in WO List
+![Unassigned Tasks](./images/wo_list_unassigned.png)
+Then select `Take and Activate` button (walking man on the right).
+![Take and Activate](./images/activate.png)
+After that you can select the asset. After selecting the asset, you can see the custom form.
+![Custom Form](./images/custom_form_wo.png)
+And you can choose the action to perform (for i.e. select `Ingest anyway`). To close the workorder click on `Complete Workorder`.
+
+## Storing results
+After this action, if you decide to store the ouput you can see the result in the asset inventory.
+![Asset Inventory](./images/wo_result_inventory.png)
+And the file would be something like
+[this](./images/wo_result_file_structure.png)
