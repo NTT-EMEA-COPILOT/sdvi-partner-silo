@@ -60,13 +60,15 @@ More about this Widget in `Session Mode` [here](https://sdvi.my.site.com/support
 
 Then add a `Supply Chain Trigger` widget.
 ![Supply Chain Trigger](images/supply_chain_trigger_wo_for_start_workflow.png)
+More about this widget [here](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Supply-Chain-Trigger)
 
 This example demonstrates starting a supply chain on an existing asset, adding a file to the inventory, and creating an inventory entry in the user metadata.
 [Example here](https://partner.sdvi.com/gateway/testusergw/start-workflow)
 
 
 ## 3rd Parties To Trigger SDVI Workflows
-[Official Documentation here](https://sdvi.my.site.com/support/s/article/How-To-Allow-3rd-Parties-To-Trigger-SDVI-Workflows
+[Official Documentation here](https://sdvi.my.site.com/support/s/article/How-To-Allow-3rd-Parties-To-Trigger-SDVI-Workflows)
+
 *Note*: In the 1st step:
 * _workflowServiceUrl = 'https://demo.sdvi.com/api/v2/workflows' Should be replaced whith the URL of https://partner.sdvi.com/
 * _token = '' Personal token. [here](https://sdvi.my.site.com/support/s/article/Rally-v2-API) how to create it. 
