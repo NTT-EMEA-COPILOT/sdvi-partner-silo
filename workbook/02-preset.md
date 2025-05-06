@@ -57,6 +57,25 @@ Fill the form with the proper values and click on `Save`:
 
 ![Notification Preset](images/notification_preset.png)
 
+You can create a notification preset via API. Documentation [here](https://partner.sdvi.com/apidocs/index.html#resource-reference-notification-presets-post-notificationpresets)
+POST /notificationPresets
+```json
+{
+    "data": {
+        "attributes": {
+            "address": "arn:aws:sns:eu-west-1:117342603894:sdvi-partner-silo-topic-1-test_user",
+            "awsRole": "arn:aws:iam::117342603894:role/sdvi-partner-silo-dev-role",
+            "name": "test_user_topic_1_trigger",
+            "paused": null,
+            "replyTo": null,
+            "type": "SNS Recv"
+        },
+        "type": "notificationPresets"
+    }
+}
+```
+
+
 ## Test it
 The preset is now ready to be tested.
 We're going to use the API to send a message to the SNS topic.
