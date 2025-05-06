@@ -51,6 +51,8 @@ Topic ARN follow the pattern `arn:aws:sns:eu-west-1:117342603894:sdvi-partner-si
 
 From the left hand menu select the `Notification Presets` menu item and select `create` after ellipsis expansion on the upper right corner.
 
+Other documentation on crating rules and presets can be found [here](https://sdvi.my.site.com/support/s/article/Introduction-to-Rules-and-Presets)
+
 ![Create Notification](images/create_notification.png)
 
 Fill the form with the proper values and click on `Save`:
