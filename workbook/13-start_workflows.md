@@ -5,12 +5,16 @@
 
 ## From a Workorder 
 As first widget you need to add an `Asset List`.
+
 ![Asset List](images/asset_list_wo_for_start_workflow.png)
+
 to pick the asset you want to start the workflow on.
 More about Asset List widget [here](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Asset-List).
 
 Then add a `Metadata Edit` widget.
+
 ![Metadata Edit](images/metadata_edit_wo_for_start_workflow.png)
+
 In this case this widget is used to pass some information through the `dynamic_preset_data`.
 for i.e.
 ```json
@@ -55,11 +59,15 @@ for i.e.
 [Here](https://sdvi.my.site.com/support/s/article/Metadata-Form-Use-in-Rally-and-Gateway) article on custom forms.
 
 *Note*: This widget is a `Session Mode` one.
+
 ![Session Mode](images/session_mode.png)
+
 More about this Widget in `Session Mode` [here](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Metadata-Edit-Session-Mode).
 
 Then add a `Supply Chain Trigger` widget.
+
 ![Supply Chain Trigger](images/supply_chain_trigger_wo_for_start_workflow.png)
+
 More about this widget [here](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Supply-Chain-Trigger)
 
 This example demonstrates starting a supply chain on an existing asset, adding a file to the inventory, and creating an inventory entry in the user metadata.
