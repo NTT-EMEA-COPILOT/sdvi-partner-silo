@@ -150,16 +150,24 @@ You can create a preset to add the dynamic preset data (DPD) before running the 
 
 ## In the gateway page
 Go to `Unassigned tasks` in WO List
+
 ![Unassigned Tasks](./images/wo_list_unassigned.png)
+
 Then select `Take and Activate` button (walking man on the right).
 Once you take and activate the workorder, it will be moved in `My Tasks` section.
+
 ![Take and Activate](./images/activate.png)
+
 After that you can select the asset. After selecting the asset, you can see the custom form.
+
 ![Custom Form](./images/custom_form_wo.png)
+
 And you can choose the action to perform (for i.e. select `Ingest anyway`). To close the workorder click on `Complete Workorder`.
 
 ## Storing results
 After this action, if you decide to store the ouput you can see the result in the asset inventory.
+
 ![Asset Inventory](./images/wo_result_inventory.png)
+
 And the file would be something like
 [this](./images/wo_result_file_structure.png)
