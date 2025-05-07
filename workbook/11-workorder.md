@@ -141,19 +141,17 @@ You need to run the preset on the asset. it can be used the `Advanced Runner`, m
 {
     "message": "This is a test message",
     "label": "test_label",
-    "location": "test_incoming",
+    "location": "test_processed",
     "name": "test_name"
 }
 ```
 You can create a preset to add the dynamic preset data (DPD) before running the workorder preset, and then call the workorder preset from it.
 
-# Temporary not working #
-The workorders are not loading properly, it can take days so you won't see it on the gateway page. 
-
 ## In the gateway page
 Go to `Unassigned tasks` in WO List
 ![Unassigned Tasks](./images/wo_list_unassigned.png)
 Then select `Take and Activate` button (walking man on the right).
+Once you take and activate the workorder, it will be moved in `My Tasks` section.
 ![Take and Activate](./images/activate.png)
 After that you can select the asset. After selecting the asset, you can see the custom form.
 ![Custom Form](./images/custom_form_wo.png)
