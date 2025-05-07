@@ -85,11 +85,6 @@ To save the workorder output in metadata you should add:
   }
 }
 ```
-where:
-* `enableMio`: This must be set to true to allow both input and output functionality. For more details about Multi-File I/O (MIO), refer [here](https://sdvi.my.site.com/support/s/article/Multi-File-I-O-aka-MIO).
-* `label`: This is the label that will be saved in the asset inventory.
-* `location`: This specifies the RSL (Resource Storage Location) where the output file will be stored.
-* `name`: This is the name of the output file, which will be saved as a JSON file in this case.
 
 ## Create your work order page
 Enter the gateway page created in chapter 10 and create a new portal page.
@@ -145,6 +140,12 @@ You need to run the preset on the asset. it can be used the `Advanced Runner`, m
     "name": "test_name"
 }
 ```
+where:
+* `message`: This is the message that will be displayed in the workorder.
+* `label`: This is the label that will be saved in the asset inventory.
+* `location`: This specifies the RSL (Resource Storage Location) where the output file will be stored.
+* `name`: This is the name of the output file, which will be saved as a JSON file in this case.
+
 You can create a preset to add the dynamic preset data (DPD) before running the workorder preset, and then call the workorder preset from it.
 
 ## In the gateway page
