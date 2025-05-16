@@ -18,6 +18,6 @@
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
 | **[Accurate Player](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Accurate-Player)**                                                                  | Accurate Player introduction.                                        |
 | **[Accurate-Validate](https://sdvi.my.site.com/support/s/article/Gateway-Widget-Accurate-Validate)**                                                              | Validation with accurate player.                                     |
-| **[Costume Mareker on Accurate](https://sdvi.my.site.com/support/s/article/Accurate-Player-How-To-Configure-A-Rally-Work-Order-To-Use-Custom-Markers)**           | How To Configure Accurate Work Order To Use Custom Markers           |
+| **[Costume Marker on Accurate](https://sdvi.my.site.com/support/s/article/Accurate-Player-How-To-Configure-A-Rally-Work-Order-To-Use-Custom-Markers)**           | How To Configure Accurate Work Order To Use Custom Markers           |
 | **[Costume Metadata on Accurate](https://sdvi.my.site.com/support/s/article/Accurate-Player-How-To-Configure-A-Rally-Work-Order-To-Use-Custom-Editable-Metadata)** | How To Configure Accurate Work Order To Use Custom/Editable Metadata |
 | **[Official Accurate Documentation](https://docs.accurate.video/docs/)** | Official Accurate documentation |                                     |
